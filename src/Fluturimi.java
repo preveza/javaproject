@@ -26,15 +26,7 @@ public class Fluturimi {
         gjeneroUleset();
     }
 
-    // Konstruktor rezervë nëse në ndonjë vend thirret pa portaNisjes
-    public Fluturimi(String numriFluturimit, Aeroporti nisja, Aeroporti mberritja,
-                     String dataOraNisjes, Avioni avioni, Piloti piloti, double cmimiBaze) {
-        this(numriFluturimit, nisja, mberritja, dataOraNisjes, avioni, piloti, cmimiBaze, "Gate A1");
-    }
-
-    // Gjeneron kabinën e plotë me 30 rreshta (A-B-C | D-E-F = 180 ulëse)
     private void gjeneroUleset() {
-        uleset.clear();
         String[] kolonat = {"A", "B", "C", "D", "E", "F"};
         for (int rreshti = 1; rreshti <= 30; rreshti++) {
             String klasa = (rreshti <= 3) ? "Business" : "Economy";
@@ -65,13 +57,8 @@ public class Fluturimi {
         return cmimiBaze;
     }
 
-    public Ulesja gjejUlesen(String numriUleses) {
-        for (Ulesja u : uleset) {
-            if (u.getNumriUleses().equalsIgnoreCase(numriUleses)) {
-                return u;
-            }
-        }
-        return null;
+    public void setCmimiBaze(double cmimiBaze) {
+        this.cmimiBaze = cmimiBaze;
     }
 
     public String getNumriFluturimit() { return numriFluturimit; }
@@ -86,6 +73,6 @@ public class Fluturimi {
 
     @Override
     public String toString() {
-        return numriFluturimit + ": " + nisja.getQyteti() + " -> " + mberritja.getQyteti() + " (" + dataOraNisjes + ")";
+        return numriFluturimit + " (" + nisja.getKodiIATA() + " -> " + mberritja.getKodiIATA() + ")";
     }
 }

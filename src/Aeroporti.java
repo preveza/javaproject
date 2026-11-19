@@ -18,4 +18,9 @@ public class Aeroporti {
     public String toString() {
         return qyteti + " (" + kodiIATA + ") - " + emri;
     }
+
+	public String getEmri() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
